@@ -17,7 +17,8 @@ export interface PhotoboxState {
   selectedForStrip: string[]
   selectedForHero: string | null
   caption: string
-  stickers: StickerItem[]
+  heroStickers: StickerItem[]    // ← was: stickers
+  stripStickers: StickerItem[]   // ← new
   stripDataUrl: string | null
   heroDataUrl: string | null
   cloudinaryStripUrl: string | null
@@ -32,9 +33,14 @@ export interface PhotoboxActions {
   setSelectedForStrip: (photos: string[]) => void
   setSelectedForHero: (photo: string) => void
   setCaption: (caption: string) => void
-  addSticker: (sticker: StickerItem) => void
-  updateStickerPosition: (id: string, x: number, y: number) => void
-  removeSticker: (id: string) => void
+  // Hero stickers
+  addHeroSticker: (sticker: StickerItem) => void
+  updateHeroStickerPosition: (id: string, x: number, y: number) => void
+  removeHeroSticker: (id: string) => void
+  // Strip stickers
+  addStripSticker: (sticker: StickerItem) => void
+  updateStripStickerPosition: (id: string, x: number, y: number) => void
+  removeStripSticker: (id: string) => void
   setStripDataUrl: (url: string) => void
   setHeroDataUrl: (url: string) => void
   setCloudinaryUrls: (strip: string, hero: string) => void
@@ -48,7 +54,8 @@ const initialState: PhotoboxState = {
   selectedForStrip: [],
   selectedForHero: null,
   caption: '',
-  stickers: [],
+  heroStickers: [],
+  stripStickers: [],
   stripDataUrl: null,
   heroDataUrl: null,
   cloudinaryStripUrl: null,
@@ -73,19 +80,36 @@ export const usePhotoboxStore = create<PhotoboxState & PhotoboxActions>((set) =>
 
   setCaption: (caption) => set({ caption }),
 
-  addSticker: (sticker) =>
-    set((state) => ({ stickers: [...state.stickers, sticker] })),
+  // Hero stickers
+  addHeroSticker: (sticker) =>
+    set((state) => ({ heroStickers: [...state.heroStickers, sticker] })),
 
-  updateStickerPosition: (id, x, y) =>
+  updateHeroStickerPosition: (id, x, y) =>
     set((state) => ({
-      stickers: state.stickers.map((s) =>
+      heroStickers: state.heroStickers.map((s) =>
         s.id === id ? { ...s, x, y } : s
       ),
     })),
 
-  removeSticker: (id) =>
+  removeHeroSticker: (id) =>
     set((state) => ({
-      stickers: state.stickers.filter((s) => s.id !== id),
+      heroStickers: state.heroStickers.filter((s) => s.id !== id),
+    })),
+
+  // Strip stickers
+  addStripSticker: (sticker) =>
+    set((state) => ({ stripStickers: [...state.stripStickers, sticker] })),
+
+  updateStripStickerPosition: (id, x, y) =>
+    set((state) => ({
+      stripStickers: state.stripStickers.map((s) =>
+        s.id === id ? { ...s, x, y } : s
+      ),
+    })),
+
+  removeStripSticker: (id) =>
+    set((state) => ({
+      stripStickers: state.stripStickers.filter((s) => s.id !== id),
     })),
 
   setStripDataUrl: (url) => set({ stripDataUrl: url }),
