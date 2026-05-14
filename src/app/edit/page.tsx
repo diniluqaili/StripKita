@@ -70,7 +70,7 @@ export default function EditPage() {
   const activeRef = activeTab === "hero" ? heroContainerRef : stripContainerRef;
 
   return (
-    <div className="flex flex-col flex-1 overflow-hidden">
+    <div className="max-w-md mx-auto w-full min-h-screen flex flex-col">
       {/* Header */}
       <div className="px-4 pt-5 pb-3 flex flex-col gap-3">
         <div className="flex items-center justify-between">

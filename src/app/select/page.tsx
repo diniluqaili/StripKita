@@ -46,7 +46,7 @@ export default function SelectPage() {
 
   if (capturedPhotos.length === 0) {
     return (
-      <div className="flex flex-col flex-1 items-center justify-center gap-4 px-6 text-center">
+      <div className="max-w-md mx-auto w-full min-h-screen flex flex-col">
         <div className="text-5xl">🎞️</div>
         <p className="text-white/60">Belum ada foto. Kembali ke kamera dulu.</p>
         <button
@@ -60,7 +60,7 @@ export default function SelectPage() {
   }
 
   return (
-    <div className="flex flex-col flex-1 px-4 py-6 gap-5">
+    <div className="max-w-md mx-auto w-full min-h-screen flex flex-col px-4 py-6 gap-5">
       {/* Header */}
       <div>
         <div className="flex items-center gap-2 mb-1">

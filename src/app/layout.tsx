@@ -14,9 +14,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body className="min-h-screen bg-[#0f0f0f] text-white">
-        <main className="max-w-md mx-auto min-h-screen flex flex-col">
-          {children}
-        </main>
+        <main className="min-h-screen flex flex-col">{children}</main>
       </body>
     </html>
   );

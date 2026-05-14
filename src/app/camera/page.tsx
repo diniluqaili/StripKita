@@ -125,7 +125,7 @@ export default function CameraPage() {
   }
 
   return (
-    <div className="flex flex-col flex-1 relative overflow-hidden">
+    <div className="max-w-md mx-auto w-full min-h-screen flex flex-col">
       {/* Hidden canvas for capture */}
       <canvas ref={canvasRef} className="hidden" />
 

@@ -79,7 +79,7 @@ export default function DownloadPage() {
   // ── Generating ─────────────────────────────────────────────────────────────
   if (status === "generating") {
     return (
-      <div className="flex flex-col flex-1 items-center justify-center gap-5 px-6">
+      <div className="max-w-md mx-auto w-full min-h-screen flex flex-col">
         <div className="relative w-16 h-16">
           <div className="absolute inset-0 rounded-full border-4 border-white/10" />
           <div className="absolute inset-0 rounded-full border-4 border-t-pink-400 animate-spin" />
@@ -95,7 +95,7 @@ export default function DownloadPage() {
   // ── Error ──────────────────────────────────────────────────────────────────
   if (status === "error") {
     return (
-      <div className="flex flex-col flex-1 items-center justify-center gap-4 px-6 text-center">
+      <div className="max-w-md mx-auto w-full min-h-screen flex flex-col items-center justify-center gap-4 px-6 text-center">
         <div className="text-5xl">😵</div>
         <p className="text-white font-bold">{error}</p>
         <button
@@ -110,7 +110,7 @@ export default function DownloadPage() {
 
   // ── Ready ──────────────────────────────────────────────────────────────────
   return (
-    <div className="flex flex-col flex-1 px-4 py-6 gap-6 overflow-y-auto">
+    <div className="max-w-md mx-auto w-full min-h-screen flex flex-col px-4 py-6 gap-6 overflow-y-auto">
       {/* Header */}
       <div className="text-center">
         <h1 className="text-2xl font-bold">
