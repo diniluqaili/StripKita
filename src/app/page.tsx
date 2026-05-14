@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const CARDS = [
-  { src: "/card1.jpg", label: "Momen spesial" },
-  { src: "/card2.jpg", label: "Foto bareng" },
-  { src: "/card3.jpg", label: "Kenangan indah" },
+  { src: "/card1.png", label: "Momen spesial" },
+  { src: "/card2.png", label: "Foto bareng" },
+  { src: "/card3.png", label: "Kenangan indah" },
 ];
 
 export default function LandingPage() {
